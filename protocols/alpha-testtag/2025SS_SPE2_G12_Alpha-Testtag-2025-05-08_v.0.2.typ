@@ -96,7 +96,7 @@
         _Stellt nicht alle benötigten Funktionen bereit_\
         _Nicht mit PyBricks kompatibel_
 
-        === Sensor Neue 1-Diode
+        === Sensor Neu RGB
 
         - #highlight(fill: yellow)[*Gelb*]: ok
           - erkennt oft als Braun, bei zu nahe/zu weit weg als Schwarz
@@ -129,7 +129,7 @@
 
         #table(
           columns: 3,
-          [*Farbe*], [*NXT RGB*], [*Neue 1-Diode*],
+          [*Farbe*], [*NXT RGB*], [*Neu RGB*],
           highlight(fill: yellow)[Gelb], [-], [ok],
           highlight(fill: green)[Grün], [-], [ok],
           highlight(fill: red)[Rot], [-], [gut],
@@ -194,11 +194,11 @@
       notes: [
         === Wie Steine gefunden und erkannt werden
 
-        Die Steine werden mit dem *Farbsensor Neue 1-Diode* erkannt. Dieser misst periodisch die Farbe in kurzem Abstand vorher. Bei Erkennung einer Farbe, die einem potentiellen Stein entspricht, gilt ein Stein als gefunden. Es wurde ebenso die Farberkennung wie aus Kapitel _Farberkennung_ demonstriert.
+        Die Steine werden mit dem Farbsensor *Neu RGB* erkannt. Dieser misst periodisch die Farbe in kurzem Abstand vorher. Bei Erkennung einer Farbe, die einem potentiellen Stein entspricht, gilt ein Stein als gefunden. Es wurde ebenso die Farberkennung wie aus Kapitel _Farberkennung_ demonstriert.
 
         === Warum welcher Sensor für Erkennung der Steinfarbe verwendet wird
 
-        Der Farbsensor *Neue 1-Diode* wurde verwendet, da dieser gute Erkennungswerte hat. Außerdem ist die einzige Alternative, die zur Verfügung steht (NXT RGB), für das Projekt nicht geeignet.
+        Der Farbsensor *Neu RGB* wurde verwendet, da dieser gute Erkennungswerte hat. Außerdem ist die einzige Alternative, die zur Verfügung steht (NXT RGB), für das Projekt nicht geeignet.
 
         === Wie erkannt wird, dass ein Stein erfolgreich gehoben wurden
 
