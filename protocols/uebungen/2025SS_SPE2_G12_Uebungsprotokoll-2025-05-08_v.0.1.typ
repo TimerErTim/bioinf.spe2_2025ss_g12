@@ -164,12 +164,19 @@
         Welche Tests wurden innerhalb der Gruppe durchgeführt zur internen Entwicklung?
       ],
       notes: [
-        === Greifarm Tests
+        Die folgende Dokumentation erfolgte chronologisch:
         
-        *Erkenntnisse*
+        === Greifarm Tests
+
+        _Erkenntnisse_
         - Port _D_ funktioniert nicht
           - Zwei damit verbundene Sensoren funktionieren nicht
           - Auf anderen Ports funktionieren die beiden Sensoren
+
+        === Heben & Niederlassen von Arm
+        Anheben hat funktioniert, danach nichts mehr. Auch keine Konsolenausgaben. 
+        
+        *Wechseln des EV3-Bricks* aufgrund von oben genannten Problemen.
       ]
     ),
     (
