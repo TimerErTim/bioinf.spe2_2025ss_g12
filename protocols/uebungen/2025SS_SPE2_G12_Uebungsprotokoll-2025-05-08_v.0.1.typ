@@ -94,6 +94,7 @@
 
         _Erfüllt die Anforderungen nicht_\
         _Stellt nicht alle benötigten Funktionen bereit_\
+        _Nicht mit PyBricks kompatibel_
 
         === Sensor Neue 1-Diode
 
@@ -165,7 +166,7 @@
       ],
       notes: [
         Die folgende Dokumentation erfolgte chronologisch:
-        
+
         === Greifarm Tests
 
         _Erkenntnisse_
@@ -177,16 +178,37 @@
         Anheben hat funktioniert, danach nichts mehr. Auch keine Konsolenausgaben. 
         
         *Wechseln des EV3-Bricks* aufgrund von oben genannten Problemen.
+
+        === Farbsensor zur Überprüfung der Steinaufnahme
+
+        Prototypisierung, ob sich der Farbsensor auch dazu verwenden lässt, um zu erkennen, ob Steine erfolgreich aufgehoben wurden und noch immer im Greifarm sind:
+
+        *Ergebnis*: vielversprechend, erste Tests erfolgreich
       ]
     ),
     (
       title: "Tests mit Tutorin",
       description: [
-        jk
+        Welche Tests wurden mit der Tutorin durchgeführt? Was sind die Ergebnisse?
       ],
       notes: [
-        ====
-        
+        === Wie Steine gefunden und erkannt werden
+
+        Die Steine werden mit dem *Farbsensor Neue 1-Diode* erkannt. Dieser misst periodisch die Farbe in kurzem Abstand vorher. Bei Erkennung einer Farbe, die einem potentiellen Stein entspricht, gilt ein Stein als gefunden. Es wurde ebenso die Farberkennung wie aus Kapitel _Farberkennung_ demonstriert.
+
+        === Warum welcher Sensor für Erkennung der Steinfarbe verwendet wird
+
+        Der Farbsensor *Neue 1-Diode* wurde verwendet, da dieser gute Erkennungswerte hat. Außerdem ist die einzige Alternative, die zur Verfügung steht (NXT RGB), für das Projekt nicht geeignet.
+
+        === Wie erkannt wird, dass ein Stein erfolgreich gehoben wurden
+
+        Der Farbsensor wird verwendet, um die Farbe des Steins im Greifarm zu messen. Divergiert diese vom Sollwert (nach Aufheben die Farbe des aktuell transportierten Steins), wissen wir, dass der Stein nicht erfolgreich gehoben wurde. 
+
+        Dies wurde erfolgreich anhand vom grünen Stein und rünterkippen per Finger demonstriert. Das Programm gab die erwartete Ausgabe zurück.
+
+        === Wo und wie ein Stein abgelegt/gestapelt wird
+
+        _Die Implementierung ist noch nicht in einem testbaren Zustand._
       ]
     ),
     (
@@ -196,12 +218,22 @@
         #sym.arrow *Skizze*
       ],
       notes: [
-        ==== kk
-        jj
+        === Skizze
+
+        #box(clip: true, height: 20em,
+          image(
+            "assets/2025-05-08_arena_aufstellung_skizze.svg", height: 40em
+        ))
+
+        === Legende
+        #text(blue)[#sym.fence ... Steinebereich]\
+        #text(black)[#sym.fence ... Arbeitsfläche]\
+        #text(green)[#sym.fence ... Mögliche Startpunkte]
       ]
     )
   ),
   future: [
-    TBD
+    - Pflichtenheft verbessern
+      - Tim
   ],
 )
