@@ -7,7 +7,7 @@
   semester: "SS 2025",
   group: "12",
   author: "Tim Peko",
-  corrector: "Alexander Kranl",
+  corrector: "Moritz Kieselbach",
   team: ("Moritz Kieselbach", "Tim Wahlmüller", "Tim Peko", "Alexander Kranl", "Alexandra Usuanlele"),
   version: "1.3",
   date: "09. Mai 2025",
