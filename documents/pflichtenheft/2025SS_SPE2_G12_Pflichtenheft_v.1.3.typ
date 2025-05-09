@@ -23,7 +23,7 @@
     (word: "Zielbereich", definition: "Fläche, auf der die Steine nach Farben sortiert gestapelt werden"),
     (
       word: "Arbeitsfläche",
-      definition: "Fläche, auf der sich der Roboter befindet und er seine Aufgabe erfüllen muss; Vorraussichtlich die gleiche Fläche wie der Zielbereich",
+      definition: "Fläche, auf der sich der Roboter befindet und er seine Aufgabe erfüllen muss; Voraussichtlich die gleiche Fläche wie der Zielbereich",
     ),
     (word: "Alpha-Version", definition: "Erste lauffähige Version des Roboters mit grundlegender Funktionalität"),
     (word: "Alpha-Testtag", definition: "Tag des ersten Testens der Alpha-Version in der Testumgebung"),
@@ -233,7 +233,7 @@ Der rechteckige _Zielbereich_ befindet sich neben dem _Steinebereich_ auf demsel
 Roboter befindet. Er ist also auch gleichzeitig die _Arbeitsfläche_ und wird so groß gewählt, dass genügend Platz für
 den Roboter und die zu bildenden Stapel ist.
 
-Es ist zu beachten, dass bei größeren _Arbeitsfläche_\n möglicherweise mehrere Tische zusammengestellt werden, was zu
+Es ist zu beachten, dass bei größeren Arbeitsflächen möglicherweise mehrere Tische zusammengestellt werden, was zu
 leichten Unebenheiten führen kann.
 
 ==== Sonstiges
@@ -387,7 +387,7 @@ anderen Untergründen nicht gewährleistet werden.
 - Grundsätzlich eben
   - Kleine Spalten zwischen zusammengeschobenen Tischen sind zulässig
 - Horizontal unverformt
-  - Nicht korvex
+  - Nicht konvex
   - Nicht konkav
 - Nicht rutschig
 - Nicht relevant schief (gemessen nach Wasserwaage)
@@ -468,8 +468,8 @@ Es muss jedoch verhindert werden, dass der Roboter selbst von der _Arbeitsfläch
 
 == Ressourceneffizienz
 
-Es dürfen soviele Ressourcen wie nötig für einen Durchlauf verwendet werden, solange der Roboter in der Lage bleibt,
-seinen Druchlauf zu beenden.
+Es dürfen so viele Ressourcen wie nötig für einen Durchlauf verwendet werden, solange der Roboter in der Lage bleibt,
+seinen Durchlauf zu beenden.
 
 #pagebreak()
 = Anforderungen an die Projektentwicklung
@@ -763,15 +763,11 @@ Detaillierte Beschreibung der einzelnen Teilabläufe aus dem Durchlauf.
 
 Wie wird erkannt, dass es sich auf dem Steinebereich um einen Stein handelt, der gestapelt werden soll?
 
-Der Farbsensor misst periodisch die Farbe nahe vor dem Sensor. Bei Erkennung einer Farbe, die einem potentiellen Stein
-entspricht, gilt ein Stein als gefunden. Da der Farbensor auf dem Greifarm montiert ist, kann jener Stein gleich
-aufgehoben werden.
+Der Farbsensor misst periodisch die Farbe nahe vor dem Sensor. Bei Erkennung einer Farbe, die einem potenziellen Stein entspricht, gilt ein Stein als gefunden. Da der Farbsensor auf dem Greifarm montiert ist, kann jener Stein gleich aufgehoben werden.
 
-==== Erkennung des Verlust eines Steins aus dem Greifarm
+==== Erkennung des Verlusts eines Steins aus dem Greifarm
 
 Ist der Stein erfolgreich gehoben worden? Fiel der Stein unbeabsichtigt aus dem Greifarm?
 
-Der Farbsensor wird verwendet, um periodisch die Farbe des Steins im Greifarm zu messen. Divergiert diese vom Sollwert
-(nach Aufheben entspricht der Farbe des aktuell zu transportierenden Steins), wissen wir, dass der Stein nicht
-erfolgreich gehoben wurde bzw. verloren ging.
+Der Farbsensor wird verwendet, um periodisch die Farbe des Steins im Greifarm zu messen. Weicht diese vom Sollwert ab (Sollwert entspricht nach Aufheben der Farbe des aktuell zu transportierenden Steins), wissen wir, dass der Stein nicht erfolgreich gehoben wurde bzw. verloren ging.
 
