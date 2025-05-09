@@ -7,10 +7,10 @@
   semester: "SS 2025",
   group: "12",
   author: "Tim Peko",
-  corrector: "Tim Wahlmüller",
+  corrector: "Alexander Kranl",
   team: ("Moritz Kieselbach", "Tim Wahlmüller", "Tim Peko", "Alexander Kranl", "Alexandra Usuanlele"),
   version: "1.1",
-  date: "02. Mai 2025",
+  date: "09. Mai 2025",
 )
 
 #show: base-structure.with(
@@ -76,6 +76,19 @@
       word: "Tutor",
       definition: "Höhersemestrige Studenten, die den Kursleiter im Rahmen der Lehrveranstaltung unterstützen",
     ),
+    (
+      word: "Peripheriegerät",
+      definition: "Gerät, das an den EV3-Mono-Brick angeschlossen wird; Sensoren (z.B. Farbsensor, Gyrosensor) und auch Aktoren (z.B. Motoren)",
+    ),
+    (
+      word: "NXT RGB-Sensor",
+      definition: [Farbsensor, mit 3 Empfänger, beschriftet mit "RGB"; altes Modell; im Lego-Mindstorms-EV3-Set unter gleichen Namen
+        enthalten],
+    ),
+    (
+      word: "Neu RGB-Sensor",
+      definition: "Farbsensor, mit 1 Empfänger; neues Modell; im Lego-Mindstorms-EV3-Set namenlos enthalten",
+    ),
   ),
   appendix: [
     == Teammitglieder der Gruppe G12
@@ -94,14 +107,12 @@ dient als Übung, um die Kursteilnehmer mit klassischem Projektmanagement für S
 auf organisatorische Strukturen und Konventionen in der freien Wirtschaft vorzubereiten.
 
 Das Projektteam in dieser Projektausführung ist die Gruppe G12, deren Partnergruppe G11 ist. Die Partnergruppen müssen
-sich _Ressourcen_ teilen. In diesem Projekt wird das ein Lego-Mindstorms-Roboter sein. Unter
-Industriebedingungen könnte dies ein größerer Rechenserver sein, dessen _Ressourcen_ auf mehrere Teams verteilt werden
-müssen.
+sich _Ressourcen_ teilen. In diesem Projekt wird das ein Lego-Mindstorms-Roboter sein. Unter Industriebedingungen könnte
+dies ein größerer Rechenserver sein, dessen _Ressourcen_ auf mehrere Teams verteilt werden müssen.
 
 Die konkreten Teammitglieder des Projektteams G12 werden im Anhang angeführt.
 
 #pagebreak()
-= Lastenheft
 #set heading(numbering: "1.1.1.a")
 = Einführung in das Projekt
 
@@ -167,9 +178,12 @@ Der Roboter wird übernommen mit:
 #pagebreak()
 = Aufgabenstellung (Sollzustand)
 
-Es ist eine automatisierte Lösung für das Stapeln von Lego-Steinen nach Farbe zu entwickeln. Der
-zu entwickelnde Roboter muss in der Lage sein, Lego-Blöcke anhand ihrer Farbe zu erkennen, diese von einem erhöhten _Steinebereich_ zu
-greifen und auf einem _Zielbereich_ nach Farben sortiert zu stapeln. Diese Aufgabe muss autonom erledigt werden.
+Es ist eine automatisierte Lösung für das Stapeln von Lego-Steinen nach Farbe zu entwickeln. Der zu entwickelnde Roboter
+muss in der Lage sein, Lego-Blöcke anhand ihrer Farbe zu erkennen, diese von einem erhöhten _Steinebereich_ zu greifen
+und auf einem _Zielbereich_ nach Farben sortiert zu stapeln. Diese Aufgabe muss autonom erledigt werden.
+
+Der Umgebungsaufbau sowie sonstige Gegebenheiten werden im Folgenden detailliert beschrieben. Im @design wird das Design
+Konzept der Projektgruppe beschrieben.
 
 == Grundanforderungen
 
@@ -250,7 +264,9 @@ Peripheriegeräte sind ebenfalls verfügbar:
 
 - 3x Motoren
 - 1x Ultraschallsensor
-- 1x Farbsensor
+- 2x Farbsensoren
+  - NXT RGB-Sensor
+  - Neu RGB-Sensor
 - 1x Gyrosensor
 
 Zusätzlich steht ein Lego-Technik-Set zur Verfügung, das für den Aufbau des Roboters genutzt werden kann.
@@ -341,7 +357,8 @@ Es wird eine geeignete Entwicklungsumgebung zur Programmierung des Lego-Mindstor
 
 == Implementierung
 
-Es besteht keine Anforderung an den konkreten Ablauf eines Durchlaufs. Es muss lediglich die grundlegende Anforderung erfüllt werden:
+Es besteht keine Anforderung an den konkreten Ablauf eines Durchlaufs. Es muss lediglich die grundlegende Anforderung
+erfüllt werden:
 + Die Lego-Steine werden von einem Steinebereich entnommen
 + Sie werden in Form von Stapeln auf einem Zielbereich abgelegt
 + Dabei wird nach Farben sortiert
@@ -376,12 +393,13 @@ anderen Untergründen nicht gewährleistet werden.
 
 == Beleuchtung
 
-Die Umgebung wird mittels Tageslicht sowie künstlichem Raumlicht beleuchtet. Die Beleuchtung des _Audimax_ wird so eingestellt, dass eine möglichst hohe
-Helligkeit erreicht wird. Da die Vorhänge allerdings manchmal geschlossen und geöffnet werden, ist eine gewisse
-Variation der Beleuchtung zu erwarten.
+Die Umgebung wird mittels Tageslicht sowie künstlichem Raumlicht beleuchtet. Die Beleuchtung des _Audimax_ wird so
+eingestellt, dass eine möglichst hohe Helligkeit erreicht wird. Da die Vorhänge allerdings manchmal geschlossen und
+geöffnet werden, ist eine gewisse Variation der Beleuchtung zu erwarten.
 
 == Betriebsdauer
-Der Roboter muss in der Lage sein, seinen Arbeitsauftrag bzw. einen Durchlauf einmalig vollständig durchzuführen. Es gibt keine Anforderung an den Roboter, mehrere Durchläufe kontinuierlich abarbeiten zu können. 
+Der Roboter muss in der Lage sein, seinen Arbeitsauftrag bzw. einen Durchlauf einmalig vollständig durchzuführen. Es
+gibt keine Anforderung an den Roboter, mehrere Durchläufe kontinuierlich abarbeiten zu können.
 
 Der Roboter schließt einen Durchlauf in #sym.tilde\3 Minuten ab.
 
@@ -445,11 +463,12 @@ wichtiger Aspekt der Zuverlässigkeit und sollte durch umfangreiche Tests sicher
 
 Es sind keine Sicherheitsfunktionen wie etwa ein Notstopp-Knopf oder eine Pause-Funktion erforderlich.
 
-Es muss jedoch verhindert werden, dass der Roboter selbst von der _Arbeitsfläche_ fällt. 
+Es muss jedoch verhindert werden, dass der Roboter selbst von der _Arbeitsfläche_ fällt.
 
 == Ressourceneffizienz
 
-Es dürfen soviele Ressourcen wie nötig für einen Durchlauf verwendet werden, solange der Roboter in der Lage bleibt, seinen Druchlauf zu beenden.
+Es dürfen soviele Ressourcen wie nötig für einen Durchlauf verwendet werden, solange der Roboter in der Lage bleibt,
+seinen Druchlauf zu beenden.
 
 #pagebreak()
 = Anforderungen an die Projektentwicklung
@@ -600,24 +619,15 @@ Für den Erfolg des Projekts ist das Testen essenziell – je mehr Tests durchge
 Endergebnis sein.
 
 #pagebreak()
-#set heading(numbering: none)
-= Pflichtenheft
-#set heading(numbering: "1.1.1.a")
-= Lösung
+= Design <design>
 
 #let bordered_figure(caption: "", inset: 0em, doc) = {
-  box(
-    figure(caption: caption, 
-      box(
-        inset: inset,
-        stroke: 1pt,
-        doc
-      )
-    )
-  )
+  box(figure(caption: caption, box(inset: inset, stroke: 1pt, doc)))
 }
 
-Dieses Kapitel beschreibt die konkret geplante Umsetzung des zu entwickelnden Lego-Mindstorms-Roboters, basierend auf der Aufgabenstellung und den gegebenen Rahmenbedingungen. Die Abschnitte unterteilen sich in Mechanik, Programmierung sowie Ablaufsteuerung.
+Dieses Kapitel beschreibt die konkret geplante Umsetzung des zu entwickelnden Lego-Mindstorms-Roboters, basierend auf
+der Aufgabenstellung und den gegebenen Rahmenbedingungen. Die Abschnitte unterteilen sich in Mechanik, Programmierung
+sowie Ablaufsteuerung.
 
 == Mechanik und Aufbau
 
@@ -631,22 +641,65 @@ Diese Konfiguration erlaubt das sequentielle Abarbeiten der Blöcke auf dem Stei
 
 === Greifarm
 
-Zentral montiertes Drehgelenk erlaubt das Schwenken über mehr als 180°, wodurch der Arm von der Entnahme- zur Ablagestelle bewegt werden kann.
+Zentral montiertes Drehgelenk erlaubt das Schwenken über mehr als 180°, wodurch der Arm von der Entnahme- zur
+Ablagestelle bewegt werden kann.
 
 Der Arm ist mit einem Greifer ausgestattet, der über eine mechanische Klammer die Blöcke aufnimmt.
 
-Der Farbsensor ist direkt am Arm montiert, über oder unter dem Greifer, um die Farbe jedes Blocks vor dem Ablegen zu bestimmen.
+Der Farbsensor ist direkt am Arm montiert, über oder unter dem Greifer, um die Farbe jedes Blocks vor dem Ablegen zu
+bestimmen.
 
 === Peripherie
 
-3x Motoren:
-+ Antrieb der Plattform (vor/zurück)
-+ Drehgelenk des Arms
-+ Greifmechanik
+- 3x Motoren:
+  + Antrieb der Plattform (vor/zurück)
+  + Drehgelenk des Arms
+  + Greifmechanik
+- 1x Farbsensor für Farberkennung (RGB)\
+  - 2 verfügbare Farbsensoren:
+    + NXT RGB-Sensor
+    + Neu RGB-Sensor #text(blue.darken(25%))[#sym.arrow.l #text(8pt)[Gewählter Sensor]]
 
-1x Farbsensor für Farberkennung (RGB)
+Es werden keine weiteren Peripheriegeräte benötigt. 4 Geräte belegen alle 4 Ports des EV3-Mono-Bricks, es können also
+keine weiteren Geräte angeschlossen werden.
 
-Keine weiteren Sensoren erforderlich, aber vorbereitet für optionale Erweiterungen
+==== Vergleich der beiden Farbsensoren
+
+Es wurden beide Farbsensoren getestet indem die Farbe der verschieden farbigen Blöcke mit beiden Farbsensoren ermittelt
+und dessen Zuverlässigkeit bewertet wurde.
+
+Dabei konnte die Verwendung des NXT RGB-Sensors ausgeschlossen werden, da dieser unter PyBricks nicht unterstützt wird.
+
+#box[
+  #table(
+    columns: 3,
+    [*Steinfarbe*],
+    [*NXT RGB*],
+    [*Neu RGB*],
+    highlight(fill: yellow)[Gelb],
+    [-],
+    [ok],
+    highlight(fill: green)[Grün],
+    [-],
+    [ok],
+    highlight(fill: red)[Rot],
+    [-],
+    [gut],
+    highlight(fill: blue)[Blau],
+    [-],
+    [ok],
+    highlight(fill: silver)[Weiß],
+    [-],
+    [nicht gewünscht],
+  )
+]
+#h(1em)
+#box[
+  *Skala*:
+  + #text(green)[gut]
+  + #text(orange)[ok]
+  + #text(red)[nicht gewünscht]
+]
 
 === Skizze
 
@@ -672,6 +725,17 @@ Der Roboter startet parallel zur Reihe der Blöcke im Steinebereich, mit idealem
 
 Alle Steine können durch lineares Verfahren (Translation) erreicht werden.
 
+#bordered_figure(caption: "Zulässige Startpositionen des Roboters", inset: 0em)[
+  #box(clip: true, height: 15em, image("assets/2025-05-09_arena_aufstellung_skizze.svg", height: 30em))
+  #v(-1em)
+  #align(left, box(inset: (left: 1em))[
+    #text(blue)[#sym.fence ... Steinebereich]\
+    #text(black)[#sym.fence ... Arbeitsfläche]\
+    #text(green)[#sym.fence ... Mögliche Startpunkte]
+  ])
+  #v(1em)
+]
+
 === Durchlauf
 
 + *Scan der Steine*: Der Roboter fährt entlang der Steine, bis ein Block erkannt wird.
@@ -687,5 +751,23 @@ Alle Steine können durch lineares Verfahren (Translation) erreicht werden.
 === Programmfluss
 
 #bordered_figure(caption: "Programmfluss eines Durchlaufs", inset: 0.5em)[
-  #image("assets/2025-04-30_flowchart_skizze.svg", width:  90%)
+  #image("assets/2025-04-30_flowchart_skizze.svg", width: 90%)
 ]
+
+=== Teilabläufe
+
+Detaillierte Beschreibung der einzelnen Teilabläufe aus dem Durchlauf.
+
+==== Steine zur Entnahme erkennen
+
+Wie wird erkannt, dass es sich auf dem Steinebereich um einen Stein handelt, der gestapelt werden soll?
+
+Der Farbsensor misst periodisch die Farbe nahe vor dem Sensor. Bei Erkennung einer Farbe, die einem potentiellen Stein entspricht, gilt ein Stein als gefunden. Da der Farbensor auf dem Greifarm montiert ist, kann jener Stein gleich aufgehoben werden.
+
+==== Erkennung des Verlust eines Steins aus dem Greifarm
+
+Ist der Stein erfolgreich gehoben worden? Fiel der Stein unbeabsichtigt aus dem Greifarm?
+
+Der Farbsensor wird verwendet, um periodisch die Farbe des Steins im Greifarm zu messen. Divergiert diese vom Sollwert (nach Aufheben entspricht der Farbe des aktuell zu transportierenden Steins), wissen wir, dass der Stein nicht erfolgreich gehoben wurde bzw. verloren ging. 
+
+
