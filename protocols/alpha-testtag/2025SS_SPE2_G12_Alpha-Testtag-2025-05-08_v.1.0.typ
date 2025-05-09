@@ -13,8 +13,8 @@
     "Alexander Kranl",
     "Alexandra Usuanlele"
   ),
-  version: "0.2",
-  doc_date: "08. Mai 2025",
+  version: "1.0",
+  doc_date: "09. Mai 2025",
   meeting_date: "08. Mai 2025",
   time: ("16:20", "19:10"),
   participants: (
