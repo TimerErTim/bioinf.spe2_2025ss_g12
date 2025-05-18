@@ -15,7 +15,7 @@
     "Alexander Kranl",
     "Alexandra Usuanlele"
   ),
-  version: "0.2",
+  version: "1.0",
   date: "18. Mai 2025",
 )
 
