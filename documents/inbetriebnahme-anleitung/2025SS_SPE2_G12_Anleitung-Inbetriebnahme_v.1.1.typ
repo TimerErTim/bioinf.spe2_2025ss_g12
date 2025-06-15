@@ -8,7 +8,7 @@
   author: "Tim Peko",
   corrector: "Moritz Kieselbach",
   team: ("Moritz Kieselbach", "Tim Wahlmüller", "Tim Peko", "Alexander Kranl", "Alexandra Usuanlele"),
-  version: "1.0",
+  version: "1.1",
   date: "15. Juni 2025",
   show-cover-page: false,
 )
