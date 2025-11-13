@@ -118,20 +118,11 @@
   // Set up the header and footer
   set page(
     header: [
-        #grid(
-          columns: (1fr, 1fr),
-          [
-            #set text(size: 9pt)
-            Gruppe #group \
-            Version #version \
-            Author: #author \
-            Korrekturleser: #corrector \
-          ],
-          align(right)[
-            #set text(size: 11pt, weight: "bold")
-            #title
-          ]
-        )
+      #set text(size: 9pt)
+      Gruppe #group \
+      Version #version \
+      Author: #author \
+      Korrekturleser: #corrector \
       #line(length: 100%)
     ],
     header-ascent: 6pt,

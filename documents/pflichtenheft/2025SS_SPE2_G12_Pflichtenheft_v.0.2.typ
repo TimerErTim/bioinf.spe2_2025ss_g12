@@ -10,7 +10,7 @@
   corrector: "Tim Wahlmüller",
   team: ("Moritz Kieselbach", "Tim Wahlmüller", "Tim Peko", "Alexander Kranl", "Alexandra Usuanlele"),
   version: "0.2",
-  date: "02 . Mai 2025",
+  date: "02. Mai 2025",
 )
 
 #show: base-structure.with(

@@ -59,7 +59,7 @@
     #if topics.len() > 0 [
       #pagebreak()
 
-      = Inhalt
+      = Besprechungsthemen
       #for topic in topics [
         #block(above: 1.5em)[
           == #topic.title

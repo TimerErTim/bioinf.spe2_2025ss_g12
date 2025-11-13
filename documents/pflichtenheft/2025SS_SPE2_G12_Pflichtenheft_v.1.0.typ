@@ -9,7 +9,7 @@
   author: "Tim Peko",
   corrector: "Tim Wahlmüller",
   team: ("Moritz Kieselbach", "Tim Wahlmüller", "Tim Peko", "Alexander Kranl", "Alexandra Usuanlele"),
-  version: "1.1",
+  version: "1.0",
   date: "02. Mai 2025",
 )
 
