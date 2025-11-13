@@ -1,5 +1,5 @@
 [tools]
-typst = "latest"
+typst = "0.14.0"
 
 [env]
 TYPST_FONT_PATHS = "{{config_root}}/assets/fonts"
