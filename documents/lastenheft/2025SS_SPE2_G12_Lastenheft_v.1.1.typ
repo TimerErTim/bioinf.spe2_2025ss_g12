@@ -19,7 +19,7 @@
 )
 
 #show outline.entry: it => text(size: 12pt - 6pt * calc.log(it.element.level))[#h(2em * (it.element.level - 1))#it]
-#outline(title: "Inhaltsverzeichnis", indent: false)
+#outline(title: "Inhaltsverzeichnis", indent: 0pt)
 
 // Bold elements
 #show "Koordinationsgruppe": text.with(weight: "bold")

@@ -4,7 +4,7 @@
   #it
   #v(0.25em)
 ]
-#set text(font: "Arial")
+#set text(font: "Calibri")
 #set page(numbering: "1 von 1", number-align: bottom + right, header: "SS 2025, SPE2")
 
 #text(size: 20pt, weight: "bold")[

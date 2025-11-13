@@ -1,5 +1,3 @@
-#import "@preview/tablex:0.0.8": tablex, cellx, rowspanx, colspanx
-
 // Set document-wide styles
 #set text(font: "Calibri")
 #show heading: set text(font: "Calibri")
@@ -267,10 +265,9 @@ MicroPython ist eine *optimierte Version von Python*, die speziell für *Mikroco
 #pagebreak()
 
 == Zusammenfassung: Welche Sprache für welchen Zweck?
-#tablex(
+#table(
   columns: (auto, auto, auto, auto, auto),
   align: center,
-  header-rows: 1,
   rows: auto,
   fill: (col, row) => if row == 0 { rgb("#e0e0e0") } else if row == 6 { rgb("#f0fff0") } else { white },
   [*Sprache*], [*Schwierigkeit*], [*Performance*], [*Hauptanwendung*], [*Plattform*],
