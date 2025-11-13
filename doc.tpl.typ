@@ -25,9 +25,7 @@
     stroke: 1pt
   )
   show outline.entry: it => {
-    text(size: 12pt - 6pt * calc.log(it.element.level))[
-      #h(2em * (it.element.level - 1))#it
-    ]
+    text(size: 12pt - 6pt * calc.log(it.element.level), it)
   }
   set heading(numbering: none)
   show heading: it => {
