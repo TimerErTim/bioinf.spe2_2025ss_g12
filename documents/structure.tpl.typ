@@ -4,7 +4,7 @@
   appendix: none,
   doc
 ) = {
-  outline(title: "Inhaltsverzeichnis", indent: false, depth: 2)
+  outline(title: "Inhaltsverzeichnis", depth: 2)
   pagebreak()
 
   show: body => bold_words.fold(body, (body, word) => {
